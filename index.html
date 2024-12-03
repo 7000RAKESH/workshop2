@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Qizz app</title>
+  </head>
+  <body>
+    <div>
+      <h2>Advanced JavaScript Quiz</h2>
+      <input
+        type="text"
+        class="name"
+        name=""
+        id=""
+        placeholder="Enter Your Name"
+        required
+      />
+      <br />
+      <br />
+      <button class="random">Random name</button>
+      <br />
+      <br />
+      <button class="start">Start Quiz</button><br />
+      <br />
+      <button class="viewscore">view high score</button>
+    </div>
+    <script>
+      let input = document.querySelector(".name");
+      let name = "";
+      let random = document.querySelector(".random");
+      let start = document.querySelector(".start");
+      let randomNames = ["roshan", "ganesh", "sathvik", "Naga Ganesh", "shiva"];
+      let highScore = document.querySelector(".viewscore");
+      input.addEventListener("input", (e) => {
+        name = e.target.value;
+      });
+      start.addEventListener("click", () => {
+        if (name == "") {
+          alert("please enter your name");
+        } else {
+          localStorage.setItem("name", name);
+          location.href = "./questions.html";
+        }
+      });
+      let randomIndex = 0;
+      random.addEventListener("click", () => {
+        randomIndex = Math.floor(Math.random() * randomNames.length);
+        console.log(randomNames[randomIndex]);
+        input.value = randomNames[randomIndex];
+        name = input.value;
+        localStorage.setItem("randomname", input.value);
+      });
+      highScore.addEventListener("click", () => {
+        location.href = "./view.html";
+      });
+    </script>
+  </body>
+</html>
