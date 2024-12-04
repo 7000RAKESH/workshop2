@@ -6,6 +6,15 @@
     <title>Veiw Score</title>
   </head>
   <body>
-    <h2>Advanced Javascript Quiz</h2>
+    <div class="scorediv">
+      <h2>Advanced Javascript Quiz</h2>
+      <h3 class="marks"></h3>
+    </div>
+    <script>
+      let marks = document.querySelector(".marks");
+      let totalScore = localStorage.getItem("score");
+      marks.innerHTML = `${totalScore} is your total score`;
+      console.log(totalScore);
+    </script>
   </body>
 </html>

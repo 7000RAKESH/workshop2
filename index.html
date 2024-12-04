@@ -33,6 +33,7 @@
       let randomNames = ["roshan", "ganesh", "sathvik", "Naga Ganesh", "shiva"];
       let highScore = document.querySelector(".viewscore");
       input.addEventListener("input", (e) => {
+        e.preventDefault();
         name = e.target.value;
       });
       start.addEventListener("click", () => {
@@ -52,7 +53,7 @@
         localStorage.setItem("randomname", input.value);
       });
       highScore.addEventListener("click", () => {
-        location.href = "./view.html";
+        alert(`${score} is your score`);
       });
     </script>
   </body>
